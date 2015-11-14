@@ -1,0 +1,9 @@
+
+postgres:
+  image: postgres:9.5
+  container_name: "postgres"
+  volumes:
+    - "./postgres:/docker-entrypoint-initdb.d"
+  environment:
+    - "POSTGRES_PASSWORD=postgres"
+    - "PGPASSWORD=postgres"
