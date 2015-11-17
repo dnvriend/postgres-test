@@ -37,3 +37,5 @@ customer | stores customers data.
 address | stores address data for staff and customers
 city | stores the city names.
 country | stores the country names.
+
+![dvdrental-er](https://github.com/dnvriend/postgres-test/blob/master/er-diagram/dvdrental-er-diagram.png)
