@@ -4,6 +4,7 @@ postgres:
   container_name: "postgres"
   volumes:
     - "./postgres:/docker-entrypoint-initdb.d"
+    - "./dvdrental:/dvdrental"
   environment:
     - "POSTGRES_PASSWORD=postgres"
     - "PGPASSWORD=postgres"
