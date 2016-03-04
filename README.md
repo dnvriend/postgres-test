@@ -7,6 +7,101 @@ If you want to follow the (free) online [postgres tutorial](http://www.postgresq
 the [dvdrental postgres sample database](http://www.postgresqltutorial.com/postgresql-sample-database/) has already 
 been loaded when you `launch.sh` the project, and contains 15 tables, 1 trigger, 7 views 8 functions, 1 domain and 13 sequences.
 
+# Schema
+A [schema](http://www.tutorialspoint.com/postgresql/postgresql_schema.htm) is a named collection of tables. A schema can also contain views, 
+indexes, sequences, data types, operators, and functions. Schemas are analogous to directories at the operating system level, except that schemas 
+cannot be nested. PostgreSQL statement `CREATE SCHEMA` creates a schema.
+
+## Syntax
+The basic syntax `CREATE SCHEMA` is as follows:
+
+```sql
+CREATE SCHEMA name;
+```
+
+Where `name` is the name of the schema.
+
+## Syntax to Create table in Schema
+The basic syntax to `CREATE TABLE` in schema is as follows:
+
+```sql
+CREATE TABLE myschema.mytable (
+...
+);
+```
+
+## Example
+Let us see an example for creating a schema. Connect to the database `postgres` by using the `plsql.cli.sh` or `launch.sh` script
+and create a schema `myschema` as follows:
+
+```bash
+postgres=# create schema myschema;
+CREATE SCHEMA
+postgres=#
+```
+The message `CREATE SCHEMA` signifies that the schema is created successfully.
+
+Now, let us create a table in the above schema as follows:
+
+```bash
+postgres=# create table myschema.company(
+   ID   INT              NOT NULL,
+   NAME VARCHAR (20)     NOT NULL,
+   AGE  INT              NOT NULL,
+   ADDRESS  CHAR (25) ,
+   SALARY   DECIMAL (18, 2),
+   PRIMARY KEY (ID)
+   );
+```   
+
+This will create an empty table. You can verify the table created with the command below:
+
+```bash
+postgres=# select * from myschema.company;
+ id | name | age | address | salary
+----+------+-----+---------+--------
+(0 rows)
+```
+
+which is equivalent to:
+
+```bash
+postgres=# select * from "myschema"."company";
+ id | name | age | address | salary
+----+------+-----+---------+--------
+(0 rows)
+```
+
+### Syntax to Drop schema
+To drop a schema if it's empty (all objects in it have been dropped), then use:
+
+```sql
+DROP SCHEMA myschema;
+```
+
+To drop a schema including all contained objects, use:
+
+```sql
+DROP SCHEMA myschema CASCADE;
+```
+
+When we drop the schema, the following happens.
+
+```bash
+postgres=# drop schema myschema cascade;
+NOTICE:  drop cascades to table myschema.company
+DROP SCHEMA
+
+postgres=# select * from myschema.company;
+ERROR:  relation "myschema.company" does not exist
+LINE 1: select * from myschema.company;
+```
+
+##  Advantages of using a Schema
+* It allows many users to use one database without interfering with each other.
+* It organizes database objects into logical groups to make them more manageable.
+* Third-party applications can be put into separate schemas so they do not collide with the names of other objects.
+
 # What's new in postgres 9.5?
 - [Youtube - What's new in PostgreSQL 9.5 - Magnus Hagander](https://www.youtube.com/watch?v=ubR3AN6kaGA)
 

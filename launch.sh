@@ -10,7 +10,7 @@ docker exec postgres pg_restore -U postgres -d postgres /dvdrental/dvdrental.tar
 rm -f dvdrental/dvdrental.tar
 }
 docker rm -f $(docker ps -aq)
-docker-compose --x-networking up -d
+docker-compose up -d
 echo "Waiting on postgres server..."
 wait_for_server
 install_dvdrental
