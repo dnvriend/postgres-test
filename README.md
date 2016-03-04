@@ -1,10 +1,8 @@
 # postgres-test
-This is a study project on [Postgres](http://www.postgresql.org/). [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) 
-aka. Postgres, is an [object-relational database management system (ORDBMS)](https://en.wikipedia.org/wiki/Object-relational_database) 
-with an emphasis on extensibility and standards-compliance. 
+This is a study project on [Postgres](http://www.postgresql.org/). [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) aka. [Postgres](https://github.com/postgres/postgres), is an [object-relational database management system (ORDBMS)](https://en.wikipedia.org/wiki/Object-relational_database) with an emphasis on extensibility and standards-compliance. 
 
 If you want to follow the (free) online [postgres tutorial](http://www.postgresqltutorial.com/), 
-the [dvdrental postgres sample database](http://www.postgresqltutorial.com/postgresql-sample-database/) has already 
+the [dvdrental postgres sample database](http://www.postgresqltutorial.com/postgresql-sample-database/) has already
 been loaded when you `launch.sh` the project, and contains 15 tables, 1 trigger, 7 views 8 functions, 1 domain and 13 sequences.
 
 # Schema
