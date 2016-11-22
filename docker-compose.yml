@@ -5,6 +5,8 @@ postgres:
   volumes:
     - "./postgres:/docker-entrypoint-initdb.d"
     - "./dvdrental:/dvdrental"
+  ports:
+    - "5432:5432"
   environment:
     - "POSTGRES_PASSWORD=postgres"
     - "PGPASSWORD=postgres"
